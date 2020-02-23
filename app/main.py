@@ -2,10 +2,8 @@ import sys
 import random
 import os
 import logging
-from flask import Flask, render_template
-from flask_cors import CORS, cors_origin
+from flask import Flask, render_template, make_response
 app = Flask(__name__)
-CORS(app)
 
 logging.basicConfig(level=logging.INFO)
 
@@ -15,9 +13,10 @@ backend_port = os.getenv('BACKEND_PORT', '8080')
 title = ("Flask on %s" % host)
 
 @app.route('/')
-@cross_origin()
 def index():
-    return render_template('index.html', title=title, host=host, url = backend_url, port= backend_port, num = 10)
+    response = render_template('index.html', title=title, host=host, url = backend_url, port= backend_port, num = 10)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=PORT)
