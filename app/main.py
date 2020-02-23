@@ -14,7 +14,7 @@ title = ("Flask on %s" % host)
 
 @app.route('/')
 def index():
-    response = render_template('index.html', title=title, host=host, url = backend_url, port= backend_port, num = 10)
+    response = make_response(render_template('index.html', title=title, host=host, url = backend_url, port= backend_port, num = 10))
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
