@@ -15,6 +15,7 @@ backend_port = os.getenv('BACKEND_PORT', '8080')
 title = ("Flask on %s" % host)
 
 @app.route('/')
+@cross_origin()
 def index():
     return render_template('index.html', title=title, host=host, url = backend_url, port= backend_port, num = 10)
 
