@@ -19,7 +19,7 @@
     <script>
       function call_api(){
         $.ajax({
-          url: "{{ url }}/api/num/{{ num }}",
+          url: "{{ url }}:{{ port }}/api/num/{{ num }}",
           data: {},
           success: success,
           error: err,
