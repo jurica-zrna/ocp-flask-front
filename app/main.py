@@ -3,7 +3,7 @@ import random
 import os
 import logging
 from flask import Flask, render_template
-from flask_cors import CORS
+from flask_cors import CORS, cors_origin
 app = Flask(__name__)
 CORS(app)
 
