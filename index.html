@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; connect-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com">
-    <title>{{ title }}</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; connect-src *; script-src * 'unsafe-inline' 'unsafe-eval' https://code.jquery.com *.apps.learn-ocp.bankart.lan">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js">
     </script>
@@ -11,7 +10,6 @@
 
   <body>
 
-    <h1>Running on {{ host }}!</h1>
 
     <ul id='content'>
     </ul>
@@ -19,7 +17,7 @@
     <script>
       function call_api(){
         $.ajax({
-          url: "http://{{ url }}:{{ port }}/api/num/{{ num }}",
+          url: "http://ocp-flask-sample-edu00.apps.learn-ocp.bankart.lan/api/num/10",
           data: {},
           success: success,
           error: err,
